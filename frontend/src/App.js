@@ -1,12 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Layout from './higherOrderComp/layout';
 import Home from './Components/home';
 import Blog from './Components/blog';
 import BlogDetail from './Components/blogDetails';
 import Category from './Components/category';
 
-const App = () => {
+const App = () => (
     <Router>
         <Layout>
             <Switch>
@@ -17,6 +17,6 @@ const App = () => {
             </Switch>
         </Layout>
     </Router>
-};
+);
 
 export default App;
