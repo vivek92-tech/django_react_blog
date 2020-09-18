@@ -6,7 +6,6 @@ const layout = (props) => (
         <Navbar />
         {props.children}
     </div>
-
 );
 
 export default layout;

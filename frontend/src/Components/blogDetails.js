@@ -1,30 +1,25 @@
-import React, {useState, useEffect}  from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-
+import { Link } from 'react-router-dom';
 
 const BlogDetail = (props) => {
     const [blog, setBlog] = useState({});
 
-    useEffect(()=> {
+    useEffect(() => {
         const slug = props.match.params.id;
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/${slug}`);
-                setBlog(response.data);
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/${slug}`);
+                setBlog(res.data);
             }
-            catch (error){
+            catch (err) {
 
             }
-        };
+        }
+
         fetchData();
     }, [props.match.params.id]);
-
-     const createBlog =() => {
-        return {__html: blog.content}
-    };
 
     const capitalizeFirstLetter = (word) => {
         if (word)
@@ -33,16 +28,20 @@ const BlogDetail = (props) => {
             return '';
     };
 
+    const createBlog = () => {
+        return {__html: blog.content};
+    };
 
-return (
-    <div className='container mt-3'>
-        <h1 className='display-2'>{blog.title}</h1>
-        <h2 className='text-muted mt-3'>Category: {capitalizeFirstLetter(blog.category)}</h2>
-        <h4>{blog.month} {blog.day}</h4>
-        <div className='mt-5 mb-5 ' dangerouslySetInnerHTML={createBlog()} />
-        <hr />
-        <p className='lead mb-5'><Link to='/blog' className='front-weight-bold'>Back to Blogs</Link></p>
-    </div>
-);
-};
+    return (
+        <div className='container mt-3'>
+            <h1 className='display-2'>{blog.title}</h1>
+            <h2 className='text-muted mt-3'>Category: {capitalizeFirstLetter(blog.category)}</h2>
+            <h4 className=''>{blog.month} {blog.day}</h4>
+            <div className='mt-5 mb-5' dangerouslySetInnerHTML={createBlog()} />
+            <hr />
+            <p className="lead mb-5"><Link to='/blog' className="font-weight-bold">Back to Blogs</Link></p>
+        </div>
+    );
+}
+
 export default BlogDetail;

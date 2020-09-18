@@ -1,9 +1,9 @@
-import React, {useState,useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Category = (props) => {
-    const [blogs,setBlogs] = useState([]);
+    const [blogs, setBlogs] = useState([]);
     const [currentCategory, setCurrentCategory] = useState('');
 
     useEffect(() => {
@@ -18,15 +18,15 @@ const Category = (props) => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/blog/category`, {category}, config);
-                setBlogs(response.data);
+                const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/blog/category`, { category }, config);
+                setBlogs(res.data);
             }
-            catch (error){
+            catch (err) {
 
             }
-        };
+        }
+
         fetchData();
-
     }, [props.match.params.id]);
 
     const capitalizeFirstLetter = (word) => {
@@ -71,26 +71,25 @@ const Category = (props) => {
         }
 
         return result;
+    };
 
-    }; 
-
-    return(
-        <div className='container mt-3'>
+    return (
+        <div className="container mt-3">
             <h3 className='display-4'>{currentCategory} Category</h3>
             <div className="nav-scroller py-1 mb-2">
                 <nav className="nav d-flex justify-content-between">
-                    <Link className="p-2 text-muted" to="/category/world">World</Link>
-                    <Link className="p-2 text-muted" to="/category/environment">Environment</Link>
-                    <Link className="p-2 text-muted" to="/category/technology">Technology</Link>
-                    <Link className="p-2 text-muted" to="/category/design">Design</Link>
-                    <Link className="p-2 text-muted" to="/category/culture">Culture</Link>
-                    <Link className="p-2 text-muted" to="/category/business">Business</Link>
-                    <Link className="p-2 text-muted" to="/category/politics">Politics</Link>
-                    <Link className="p-2 text-muted" to="/category/opinion">Opinion</Link>
-                    <Link className="p-2 text-muted" to="/category/science">Science</Link>
-                    <Link className="p-2 text-muted" to="/category/health">Health</Link>
-                    <Link className="p-2 text-muted" to="/category/style">Style</Link>
-                    <Link className="p-2 text-muted" to="/category/travel">Travel</Link>
+                    <Link className="p-2 text-muted" exact to="/category/world">World</Link>
+                    <Link className="p-2 text-muted" exact to="/category/environment">Environment</Link>
+                    <Link className="p-2 text-muted" exact to="/category/technology">Technology</Link>
+                    <Link className="p-2 text-muted" exact to="/category/design">Design</Link>
+                    <Link className="p-2 text-muted" exact to="/category/culture">Culture</Link>
+                    <Link className="p-2 text-muted" exact to="/category/business">Business</Link>
+                    <Link className="p-2 text-muted" exact to="/category/politics">Politics</Link>
+                    <Link className="p-2 text-muted" exact to="/category/opinion">Opinion</Link>
+                    <Link className="p-2 text-muted" exact to="/category/science">Science</Link>
+                    <Link className="p-2 text-muted" exact to="/category/health">Health</Link>
+                    <Link className="p-2 text-muted" exact to="/category/style">Style</Link>
+                    <Link className="p-2 text-muted" exact to="/category/travel">Travel</Link>
                 </nav>
             </div>
             {getCategoryBlogs()}

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, NavLink} from 'react-router-dom';
+import './navbar.css';
 
 const navbar = () => (
+    <div className="mynav">
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link className="navbar-brand" to= '/'>Django-React-Blog</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +21,7 @@ const navbar = () => (
             </ul>
         </div>
 </nav>
+</div>
 );
 
 export default navbar;

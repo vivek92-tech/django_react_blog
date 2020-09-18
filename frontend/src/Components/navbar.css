@@ -1,0 +1,22 @@
+.mynav{
+    background-image: url('./img/google-rainbow-texture-1491566442.jpg');
+    height: 50px;
+}
+
+.navbar{
+    background-color: transparent !important;
+}
+
+.navbar .navbar-brand{
+    color: #FFF;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.navbar .navbar-nav{
+    margin: 0 auto;
+}
+
+.navbar .nav-item a{
+    color: #FFF !important;
+}

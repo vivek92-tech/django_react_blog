@@ -1,0 +1,21 @@
+.jumbotron{
+    background-color: transparent !important;
+    background: url('./img/2.jpg') top center;
+    background-size: cover;
+    margin-top: 1em;
+    padding-top: 10em;
+    padding-bottom: 10em;
+    
+}
+
+.jumbotron .container .display-4{
+    color:rgb(218, 214, 7);
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.jumbotron .container .lead{
+    margin: 0 auto;
+    color: #FFF !important;
+    
+}
