@@ -1,4 +1,4 @@
-# Django-React-blog
+# Django-React-Blog
 
 ### Table Of Content
 
